@@ -23,11 +23,37 @@ public class Main {
 
             String menuItem = Functions.getMenuItem(input);
 
-            while (!menuItem.equals("Q")){
-                //test for valid menu options & call appropriate functions
+            while (!menuItem.equals("Q")) {
+
+                // Menu selection handling
+                switch (menuItem) {
+
+                    case "A":
+                        Functions.addShow(sortedTVList, input, out);
+                        break;
+
+                    case "D":
+                        Functions.deleteShow(sortedTVList, input, out);
+                        break;
+
+                    case "K":
+                        Functions.printKeys(sortedTVList, out);
+                        break;
+
+                    case "P":
+                        Functions.printMap(sortedTVList, out);
+                        break;
+
+                    case "S":
+                        Functions.printSpecificKey(sortedTVList, input, out);
+                        break;
+                }
 
                 menuItem = Functions.getMenuItem(input);
             }
+
+            // Once loop exits, quit the program
+            Functions.quitProgram();
 
             //close files
             input.close();
